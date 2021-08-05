@@ -8,7 +8,7 @@ import lombok.Getter;
 @Getter
 public class Perfume {
 
-    public static Long id = 0L;
+    private Long id = 0L;
     private String nome;
     private BigDecimal valor;
     private EnumTipoPerfume tipo;

@@ -13,17 +13,14 @@ import br.com.pedro.SpringTesteWeb.Perfume;
 import br.com.pedro.SpringTesteWeb.PessoaFisica;
 import br.com.pedro.SpringTesteWeb.Produto;
 import br.com.pedro.SpringTesteWeb.armazenamento;
+import lombok.Getter;
 
 	@RestController
+	@RequestMapping("/perfume")
 	public class CadastroPessoaController {
 		
 		
-		@GetMapping("/valida-cpf")
-		public PessoaFisica validarCPF(@RequestParam(value = "cpf") String cpf) {
-			return new PessoaFisica("", cpf);
-		}
-		
-		@GetMapping("/cadastra-perfume")
+		@GetMapping("/cadastra")
 		public Perfume cadastroPerfume(@RequestParam(value = "nome") String nome,
 										@RequestParam(value = "valor") BigDecimal valor,
 										@RequestParam(value = "tipo") EnumTipoPerfume tipo) {
@@ -32,12 +29,12 @@ import br.com.pedro.SpringTesteWeb.armazenamento;
 			return perfume;
 		}
 		
-		@GetMapping("/listar-perfume")
+		@GetMapping("/lista")
 		public List<Perfume> listar() {
 			return armazenamento.perfumesCadastrados;
 		}
 		
-		@GetMapping("/editar-perfume")
+		@GetMapping("/edita")
 		public Perfume editar(@RequestParam(value = "id") Long id,
 							  @RequestParam(value = "nome") String nome,
 							  @RequestParam(value = "valor") BigDecimal valor, 
@@ -52,6 +49,17 @@ import br.com.pedro.SpringTesteWeb.armazenamento;
 			return null;
 		}
 		
+		@GetMapping("/remove")
+		public List<Perfume> remover(@RequestParam(value = "id") Long id) {
+			
+			for(Perfume perfume : armazenamento.perfumesCadastrados) {
+				if(id.equals(perfume.getID())) {
+					armazenamento.perfumesCadastrados.remove(perfume);
+					return armazenamento.perfumesCadastrados;
+				}
+			}
+			return null;
+		}
 		
 			
 			
