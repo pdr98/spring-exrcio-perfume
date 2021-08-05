@@ -8,9 +8,9 @@ public abstract class PessoaModel {
 	private final String nome;
 	private final String documento;
 	
-	public PessoaModel(String documento) {
+	public PessoaModel(String nome, String documento) {
 		this.id = new SplittableRandom().nextLong(0, Long.MAX_VALUE);
-		this.nome = "Pedro";
+		this.nome = nome;
 		this.documento = documento;
 	}
 

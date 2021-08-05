@@ -6,8 +6,8 @@ import br.com.pedro.SpringTesteWeb.model.PessoaModel;
 
 public class PessoaFisica extends PessoaModel {
 	
-	public PessoaFisica(String documento) {
-		super(documento);
+	public PessoaFisica(String nome, String documento) {
+		super(nome, documento);
 	}
 
 	public Boolean validarDocumento() {

@@ -6,13 +6,13 @@ import java.util.SplittableRandom;
 public class ItemCompra {
 
 	private Long id;
-	private Produto produto;
+	private Perfume perfume;
 	private Integer qtd;
 	private BigDecimal total;
 
-	public ItemCompra(Produto p, Integer qtd) {
+	public ItemCompra(Perfume p, Integer qtd) {
 		this.id = new SplittableRandom().nextLong(1, Long.MAX_VALUE);
-		this.produto = p;
+		this.perfume = p;
 		this.qtd = qtd;
 		this.total = p.getValor().multiply(BigDecimal.valueOf(qtd));
 	}
@@ -21,8 +21,8 @@ public class ItemCompra {
 		return id;
 	}
 
-	public Produto getProduto() {
-		return produto;
+	public Perfume getPerfume() {
+		return perfume;
 	}
 
 	public Integer getQtd() {

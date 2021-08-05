@@ -12,15 +12,15 @@ public class Compra {
 	private PessoaFisica cliente;
 	private List<ItemCompra> itens;
 
-	public Compra(PessoaFisica c, Produto p, Integer qtd) {
+	public Compra(PessoaFisica c, Perfume perfume, Integer qtd) {
 		this.itens = new ArrayList<>();
 		this.id = new SplittableRandom().nextLong(1, Long.MAX_VALUE);
 		this.cliente = c;
-		this.addProduto(p, qtd);
+		this.addProduto(perfume, qtd);
 	}
 	
-	public void addProduto(Produto p, Integer qtd) {
-		this.itens.add(new ItemCompra(p, qtd));
+	public void addProduto(Perfume perfume, Integer qtd) {
+		this.itens.add(new ItemCompra(perfume, qtd));
 	}
 
 	public PessoaFisica getCliente() {
